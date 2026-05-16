@@ -101,6 +101,7 @@
 
         nav ul {
             display: flex;
+            align-items: center;
             list-style: none;
             gap: 40px;
         }
@@ -117,6 +118,21 @@
 
         nav a:hover {
             color: var(--text-primary);
+        }
+
+        .nav-btn {
+            background: var(--accent-gold);
+            color: #000 !important;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            color: #000 !important;
         }
 
         /* --- Hero Section --- */
@@ -371,6 +387,7 @@
                     <li><a href="#apps">Apps</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="ppos/app_support.html" class="nav-btn">Donation</a></li>
                 </ul>
             </nav>
         </div>
@@ -387,31 +404,28 @@
 
         <section class="apps" id="apps">
             <div class="container">
-                <h2 class="section-title">Essential Mobile Apps</h2>
+                <h2 class="section-title">Pentapolis POS Android App</h2>
                 <div class="apps-grid">
-                    <div class="app-card">
+                    <a href="ppos/app_tutorial.html" target="_blank" class="app-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
                         <div class="app-content">
-                            <h3>PPOS</h3>
-                            <p>A simple point of sale system for small businesses to manage sales and inventory with ease.</p>
+                            <h3>Tutorials</h3>
+                            <p>Access user guides, step-by-step tutorials, and FAQs designed to help business owners master the POS system and manage inventory effortlessly.</p>
                         </div>
-                        <a href="#" class="download-btn">Download App</a>
-                    </div>
+                    </a>
 
-                    <div class="app-card">
+                    <a href="ppos/privacy_policies.html" target="_blank" class="app-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
                         <div class="app-content">
-                            <h3>Tracker Pro</h3>
-                            <p>A privacy-focused finance tracker that helps you manage expenses without complex features.</p>
+                            <h3>Privacy Policy</h3>
+                            <p>Learn how our application secures your business data, protects transaction records, and ensures complete privacy compliance for all users.</p>
                         </div>
-                        <a href="#" class="download-btn">Download App</a>
-                    </div>
+                    </a>
 
-                    <div class="app-card">
+                    <a href="ppos/app_support.html" target="_blank" class="app-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
                         <div class="app-content">
-                            <h3>QuickNotify</h3>
-                            <p>Streamline your daily tasks with smart, minimal notifications that won't distract you.</p>
+                            <h3>Support us</h3>
+                            <p>Support our project with a financial contribution to help us keep the application alive, completely ad-free, and continuously updated with new features.</p>
                         </div>
-                        <a href="#" class="download-btn">Download App</a>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide | PPOS — Pentapolis Point-of-Sale</title>
+    <meta name="description" content="Learn how to set up and use PPOS, the offline-first point-of-sale app for small businesses. Step-by-step guide covering sales, inventory, reports, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --surface-color: #111111;
+            --surface-hover: #161616;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-gold: #D4AF37;
+            --accent-gold-dim: rgba(212, 175, 55, 0.15);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* Back button */
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--text-secondary); text-decoration: none;
+            margin-bottom: 40px; font-weight: 500; transition: var(--transition);
+        }
+        .back-btn:hover { color: #fff; }
+
+        /* Hero */
+        .hero { text-align: center; margin-bottom: 56px; }
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--accent-gold);
+            margin-bottom: 16px; letter-spacing: -0.02em;
+        }
+        .hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* Table of contents */
+        .toc {
+            background: var(--surface-color); border: 1px solid var(--border-color);
+            border-radius: 16px; padding: 28px 32px; margin-bottom: 48px;
+        }
+        .toc h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.15rem;
+            color: var(--text-secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: var(--accent-gold); text-decoration: none; font-weight: 500; transition: var(--transition); }
+        .toc a:hover { text-decoration: underline; color: #fff; }
+
+        /* Section cards */
+        .section {
+            background: var(--surface-color); border: 1px solid var(--border-color);
+            border-radius: 20px; padding: 36px 32px; margin-bottom: 32px;
+            transition: var(--transition);
+        }
+        .section:hover { border-color: rgba(212, 175, 55, 0.2); }
+
+        .section h2 {
+            font-family: 'Outfit', sans-serif; font-size: 1.6rem;
+            color: #fff; margin-bottom: 8px;
+        }
+        .section h2 .step-num {
+            color: var(--accent-gold); margin-right: 8px; font-size: 1.3rem;
+        }
+        .section .subtitle {
+            color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 16px;
+        }
+
+        .section h3 {
+            font-family: 'Outfit', sans-serif; font-size: 1.15rem;
+            color: var(--accent-gold); margin: 24px 0 10px;
+        }
+
+        .section p, .section li { color: var(--text-secondary); }
+        .section ul, .section ol { padding-left: 20px; margin-bottom: 16px; }
+        .section li { margin-bottom: 6px; }
+        .section strong { color: var(--text-primary); }
+
+        /* Tip boxes */
+        .tip {
+            background: var(--accent-gold-dim); border-left: 3px solid var(--accent-gold);
+            border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 16px 0;
+            font-size: 0.92rem; color: #ccc;
+        }
+        .tip strong { color: var(--accent-gold); }
+
+        /* Feature chips */
+        .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+        .chip {
+            background: rgba(255,255,255,0.06); border: 1px solid var(--border-color);
+            border-radius: 100px; padding: 6px 16px; font-size: 0.82rem;
+            color: var(--text-secondary); white-space: nowrap;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center; padding-top: 40px;
+            border-top: 1px solid var(--border-color); margin-top: 16px;
+            color: var(--text-secondary); font-size: 0.85rem;
+        }
+        .footer a { color: var(--accent-gold); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .container { padding: 24px 16px 60px; }
+            .section { padding: 24px 20px; }
+            .toc { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-btn">← Back to Home</a>
+
+        <!-- Hero -->
+        <div class="hero">
+            <h1>PPOS User Guide</h1>
+            <p>Everything you need to get your store up and running with Pentapolis POS — the offline-first point-of-sale app built for small businesses.</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>In This Guide</h2>
+            <ol>
+                <li><a href="#setup">First-Time Setup</a></li>
+                <li><a href="#products">Managing Your Products</a></li>
+                <li><a href="#sales">Processing Sales</a></li>
+                <li><a href="#invoices">Invoices &amp; Printing</a></li>
+                <li><a href="#reports">Reports &amp; Insights</a></li>
+                <li><a href="#debts">Debt Management</a></li>
+                <li><a href="#sync">Multi-Device Sync</a></li>
+                <li><a href="#settings">Settings &amp; Customization</a></li>
+                <li><a href="#security">Security &amp; Privacy</a></li>
+            </ol>
+        </div>
+
+        <!-- 1. Setup -->
+        <div class="section" id="setup">
+            <h2><span class="step-num">01</span> First-Time Setup</h2>
+            <p class="subtitle">Get started in under two minutes.</p>
+
+            <h3>Choose Your Language</h3>
+            <p>On first launch, PPOS asks you to select your preferred language. The app supports <strong>33 languages</strong> including Arabic, English, French, Spanish, Hindi, Chinese, and many more. The entire interface — including right-to-left layouts — adjusts instantly.</p>
+
+            <h3>Select Your Country</h3>
+            <p>Pick your country from the list. PPOS will automatically set the correct <strong>currency symbol</strong> for your region.</p>
+
+            <h3>Choose Your Device Role</h3>
+            <ul>
+                <li><strong>Device A (Primary):</strong> Full control — manage products, debtors, settings, and sales.</li>
+                <li><strong>Device B (Secondary):</strong> Sales and reporting only — ideal for a second checkout counter. Products and settings stay in sync from Device A.</li>
+            </ul>
+
+            <h3>Sign In with Google</h3>
+            <p>Accept the Terms of Use and sign in with your Google account. This enables the optional product image backup to your personal Google Drive. Your data stays on your device — Google is only used for authentication and image storage.</p>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Setup is a one-time process. After that, the app opens directly to the Sales screen.
+            </div>
+        </div>
+
+        <!-- 2. Products -->
+        <div class="section" id="products">
+            <h2><span class="step-num">02</span> Managing Your Products</h2>
+            <p class="subtitle">Build your product catalog with ease.</p>
+
+            <p>Navigate to the <strong>Products</strong> tab from the bottom bar. Here you can view, search, add, edit, and delete products.</p>
+
+            <h3>Adding a Product</h3>
+            <ul>
+                <li>Tap the <strong>+</strong> button to add a new product.</li>
+                <li>Fill in the <strong>name</strong>, <strong>purchase price</strong> (your cost), and <strong>selling price</strong> (what the customer pays).</li>
+                <li>Optionally assign a <strong>barcode</strong> — scan it directly using the built-in scanner, or type it manually.</li>
+                <li>Pick a <strong>color</strong> for the product button that appears on the Sales screen.</li>
+                <li>Snap a <strong>photo</strong> of the product (requires an internet connection for Google Drive backup).</li>
+            </ul>
+
+            <h3>Voice Input</h3>
+            <p>Tap the <strong>microphone icon</strong> next to the product name field to dictate the name using your voice — great for fast data entry.</p>
+
+            <h3>Searching &amp; Filtering</h3>
+            <p>Use the search bar at the top to find products by name. Voice search is supported here too.</p>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Long-press any product on the Sales grid to <strong>pin</strong> it to the top for quick access.
+            </div>
+
+            <h3>"Cash Sales" Quick Entry</h3>
+            <p>The built-in <strong>Cash Sales</strong> item lets you ring up a quick, one-off sale without creating a product first — just set the price and go.</p>
+        </div>
+
+        <!-- 3. Sales -->
+        <div class="section" id="sales">
+            <h2><span class="step-num">03</span> Processing Sales</h2>
+            <p class="subtitle">Fast, intuitive checkout built for speed.</p>
+
+            <p>The <strong>Sales</strong> screen is your main workspace. The top half shows your product grid; the bottom half shows the active cart.</p>
+
+            <h3>Adding Items to the Cart</h3>
+            <ul>
+                <li><strong>Tap a product</strong> button to add it. Tap again to increase the quantity.</li>
+                <li>Use the <strong>Scan Barcode</strong> button at the top to switch to camera mode — point at a barcode to add the product instantly with an audio beep.</li>
+                <li>If a scanned barcode doesn't match any product, PPOS offers to <strong>create a new product</strong> on the spot.</li>
+            </ul>
+
+            <h3>Managing the Cart</h3>
+            <ul>
+                <li>Adjust quantities using the <strong>+</strong> and <strong>−</strong> buttons, or tap the quantity to type a specific number.</li>
+                <li>Swipe or delete individual items as needed.</li>
+                <li>The cart total updates in real time, including <strong>automatic tax</strong> if configured.</li>
+            </ul>
+
+            <h3>Multiple Carts</h3>
+            <p>Swipe horizontally to switch between <strong>multiple open carts</strong> — perfect when you're serving more than one customer at a time. The first cart is always available; additional carts are removed after checkout.</p>
+
+            <h3>Adjustments</h3>
+            <p>Before completing a sale, you can apply:</p>
+            <ul>
+                <li><strong>Discount</strong> — reduce the total.</li>
+                <li><strong>Addition</strong> — add extra charges (e.g., delivery fee).</li>
+                <li><strong>Debt Transfer</strong> — record partial or full amounts owed by a debtor.</li>
+            </ul>
+
+            <h3>POS Focus Mode</h3>
+            <p>Long-press the cart title to enter <strong>Focus Mode</strong> — the toolbar and bottom bar slide away, giving you a full-screen checkout experience. Long-press again to exit.</p>
+
+            <h3>Completing a Sale</h3>
+            <p>Tap <strong>Checkout</strong> to finalize the sale. A confirmation sound plays, and you're offered the option to <strong>view the invoice</strong> immediately or continue with the next customer.</p>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Drag the divider handle between the product grid and the cart to resize each section to your preference. PPOS remembers your layout.
+            </div>
+        </div>
+
+        <!-- 4. Invoices -->
+        <div class="section" id="invoices">
+            <h2><span class="step-num">04</span> Invoices &amp; Printing</h2>
+            <p class="subtitle">Professional invoices, instantly.</p>
+
+            <p>After every sale, PPOS generates a detailed invoice with a unique reference number (e.g., <strong>A-000042</strong>).</p>
+
+            <h3>What's on the Invoice</h3>
+            <ul>
+                <li>Your <strong>store name</strong>, address, and contact info.</li>
+                <li>Each item with quantity, unit price, and subtotal.</li>
+                <li>Discounts, additions, and tax (if applicable).</li>
+                <li>Customer name (optional).</li>
+                <li>Grand total and sale date.</li>
+            </ul>
+
+            <h3>PDF Export</h3>
+            <p>From the invoice screen, generate a <strong>PDF</strong> that you can save, email, or share via any app on your device.</p>
+
+            <h3>Bluetooth Thermal Printing</h3>
+            <p>Connect a Bluetooth thermal printer to print receipts directly. PPOS supports both <strong>58 mm</strong> and <strong>80 mm</strong> paper widths — select yours in Settings.</p>
+
+            <h3>Editing an Invoice</h3>
+            <p>Need to correct something? Open any past invoice from the Reports screen, tap <strong>Edit</strong>, and adjust items, quantities, or prices. The invoice recalculates automatically — including tax.</p>
+        </div>
+
+        <!-- 5. Reports -->
+        <div class="section" id="reports">
+            <h2><span class="step-num">05</span> Reports &amp; Insights</h2>
+            <p class="subtitle">Know your numbers at a glance.</p>
+
+            <p>The <strong>Reports</strong> tab gives you a clear financial snapshot — no spreadsheets required.</p>
+
+            <h3>Daily Report</h3>
+            <p>See the <strong>revenue</strong>, <strong>cost</strong>, and <strong>profit</strong> for any given day, along with the total number of sales. Browse day-by-day using the arrow buttons.</p>
+
+            <h3>Monthly Report</h3>
+            <p>Switch to the <strong>Monthly</strong> tab for a month-level summary with a daily breakdown list — helpful for seeing trends and comparing performance.</p>
+
+            <h3>Sales Details</h3>
+            <p>Below the summary cards, every individual sale is listed. Tap any sale to open its full invoice, print it, or edit it.</p>
+        </div>
+
+        <!-- 6. Debts -->
+        <div class="section" id="debts">
+            <h2><span class="step-num">06</span> Debt Management</h2>
+            <p class="subtitle">Track who owes you — and follow up.</p>
+
+            <p>The <strong>Debts</strong> tab lets you manage customer credit and outstanding balances.</p>
+
+            <h3>Adding a Debtor</h3>
+            <p>Tap the <strong>+</strong> button to create a debtor profile with their <strong>name</strong> and <strong>phone number</strong>.</p>
+
+            <h3>Recording Debts &amp; Payments</h3>
+            <ul>
+                <li>During checkout, choose <strong>Debt Transfer</strong> to assign part or all of a sale to a debtor.</li>
+                <li>Record payments as the debtor pays back over time.</li>
+                <li>Each debtor's <strong>balance</strong> updates automatically.</li>
+            </ul>
+
+            <h3>Account Statements</h3>
+            <p>Tap a debtor to view their full account statement — a chronological list of every debt and payment with timestamps.</p>
+
+            <h3>WhatsApp Reminders</h3>
+            <p>Send a friendly payment reminder directly via <strong>WhatsApp</strong> with a single tap. PPOS formats the message with the debtor's name, amount owed, and your store name.</p>
+        </div>
+
+        <!-- 7. Sync -->
+        <div class="section" id="sync">
+            <h2><span class="step-num">07</span> Multi-Device Sync</h2>
+            <p class="subtitle">Two devices, one store.</p>
+
+            <p>PPOS supports a simple <strong>two-device setup</strong> (Device A + Device B) so you can run two checkout counters while keeping data in sync.</p>
+
+            <h3>How Sync Works</h3>
+            <ol>
+                <li>On one device, go to <strong>Settings → Share Database</strong>. This exports your database file.</li>
+                <li>Send the file to your other device using any method — WhatsApp, Bluetooth, email, file manager, etc.</li>
+                <li>Open the file on the receiving device. PPOS detects it and offers to <strong>sync</strong> the data automatically.</li>
+            </ol>
+
+            <h3>What Gets Synced</h3>
+            <ul>
+                <li><strong>Device A</strong> is the master — it owns all products, debtors, and settings. It only imports sales from Device B.</li>
+                <li><strong>Device B</strong> receives products, debtors, and sales from Device A, but keeps its own settings.</li>
+            </ul>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Each device's invoices have a unique prefix (<strong>A-</strong> or <strong>B-</strong>) so they never conflict.
+            </div>
+        </div>
+
+        <!-- 8. Settings -->
+        <div class="section" id="settings">
+            <h2><span class="step-num">08</span> Settings &amp; Customization</h2>
+            <p class="subtitle">Make PPOS yours.</p>
+
+            <p>Open Settings from the <strong>☰ hamburger menu</strong> in the top corner.</p>
+
+            <h3>General</h3>
+            <ul>
+                <li><strong>Store Name</strong> — displayed on invoices and the toolbar.</li>
+                <li><strong>Currency</strong> — set the symbol shown across the app.</li>
+                <li><strong>Business Address &amp; Contact</strong> — appear on printed invoices.</li>
+                <li><strong>Language &amp; Country</strong> — change anytime.</li>
+            </ul>
+
+            <h3>Appearance</h3>
+            <ul>
+                <li><strong>Grid Columns</strong> — choose 3, 4, 5, or 6 columns for the product grid.</li>
+                <li><strong>Product Image Background</strong> — show product photos behind grid buttons for a visual catalog feel.</li>
+            </ul>
+
+            <h3>Tax</h3>
+            <ul>
+                <li>Set your <strong>tax rate</strong> as a percentage (e.g., 15%). PPOS will automatically add a tax line to every cart.</li>
+                <li>Enable <strong>"Hide tax if zero"</strong> to keep invoices clean when no tax applies.</li>
+            </ul>
+
+            <h3>Bluetooth Printer</h3>
+            <ul>
+                <li>Select your paper size (<strong>58 mm</strong> or <strong>80 mm</strong>).</li>
+                <li>Pair and select your Bluetooth thermal printer.</li>
+                <li>Send a <strong>test print</strong> to verify the connection.</li>
+            </ul>
+
+            <h3>Data Management</h3>
+            <ul>
+                <li><strong>Share Database</strong> — export your data for sync or safekeeping.</li>
+                <li><strong>Sync Database</strong> — import a database file from your other device.</li>
+                <li><strong>Backup</strong> — save a snapshot of your database.</li>
+                <li><strong>Restore</strong> — load a previously saved backup.</li>
+            </ul>
+        </div>
+
+        <!-- 9. Security -->
+        <div class="section" id="security">
+            <h2><span class="step-num">09</span> Security &amp; Privacy</h2>
+            <p class="subtitle">Your data, your device, your control.</p>
+
+            <h3>Biometric / PIN Lock</h3>
+            <p>PPOS uses your device's built-in authentication — <strong>fingerprint</strong>, <strong>face recognition</strong>, or <strong>PIN</strong> — to lock the app on launch and after <strong>15 minutes</strong> of inactivity.</p>
+
+            <h3>Offline-First Architecture</h3>
+            <p>All your business data lives locally on your device. PPOS does not operate any cloud servers and does not collect, transmit, or store your data remotely. Internet access is only needed for Google Sign-In and optional product image backup.</p>
+
+            <h3>No Tracking, No Ads</h3>
+            <p>PPOS contains <strong>zero analytics</strong>, <strong>zero telemetry</strong>, and <strong>zero advertisements</strong>. We don't know who you are, what you sell, or how much you earn — and we like it that way.</p>
+
+            <div class="chip-row">
+                <span class="chip">🔒 Offline-First</span>
+                <span class="chip">🚫 No Analytics</span>
+                <span class="chip">🚫 No Ads</span>
+                <span class="chip">🛡️ Biometric Lock</span>
+                <span class="chip">📱 33 Languages</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Need help? Contact us at <a href="mailto:info@pt.com.ly">info@pt.com.ly</a></p>
+            <p style="margin-top: 8px;">
+                <a href="privacy_policies.html">Privacy Policy</a> · <a href="app_support.html">Support Us</a>
+            </p>
+            <p style="margin-top: 16px;">© 2026 Pentapolis Team. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

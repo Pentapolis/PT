@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | PPOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --surface-color: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-gold: #D4AF37;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; margin: 0; padding: 0; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; color: #fff; margin-top: 2em; margin-bottom: 1em; }
+        h1 { font-size: 2.5rem; color: var(--accent-gold); }
+        h2 { font-size: 1.8rem; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h3 { font-size: 1.4rem; }
+        p { color: var(--text-secondary); margin-bottom: 1.5em; }
+        a { color: var(--accent-gold); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul, ol { color: var(--text-secondary); margin-bottom: 1.5em; padding-left: 20px; }
+        li { margin-bottom: 0.5em; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 2em; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); }
+        th { color: #fff; font-family: 'Outfit', sans-serif; }
+        blockquote { border-left: 4px solid var(--accent-gold); margin: 0; padding-left: 20px; font-style: italic; color: #ccc; }
+        hr { border: none; border-top: 1px solid var(--border-color); margin: 3em 0; }
+        code { background: var(--surface-color); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .back-btn { display: inline-flex; align-items: center; color: var(--text-secondary); text-decoration: none; margin-bottom: 40px; font-weight: 500; transition: color 0.3s; }
+        .back-btn:hover { color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-btn">← Back to Home</a>
+        <div id="content">
+<h1>Privacy Policy</h1>
+<p><strong>Pentapolis POS (&quot;PPOS&quot;)</strong>
+<strong>Effective Date:</strong> May 15, 2026
+<strong>Last Updated:</strong> May 15, 2026</p>
+<hr>
+<p>Pentapolis Team (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) operates the Pentapolis POS mobile application (&quot;PPOS,&quot; &quot;the App,&quot; or &quot;the Application&quot;). This Privacy Policy explains how we handle information when you use our Application and is intended to comply with Google Play Store policies, the General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA), and other applicable data-protection legislation.</p>
+<p>By installing or using PPOS, you acknowledge that you have read and understood this Privacy Policy. If you do not agree with this policy, please do not use the Application.</p>
+<blockquote>
+<p><strong>Official Version:</strong> The authoritative and most current version of this Privacy Policy is published at:
+<a href="https://www.pt.com.ly/ppos/privacy_policies">https://www.pt.com.ly/ppos/privacy_policies</a></p>
+</blockquote>
+<hr>
+<h2>1. Overview — Offline-First, Privacy-by-Design</h2>
+<p>PPOS is a native Android point-of-sale application built for small businesses. It is designed with an <strong>offline-first architecture</strong>: all business data is stored exclusively on your device in a local database and is fully functional without any internet connection. We do not operate backend servers, cloud databases, or data-processing infrastructure that collects, receives, or stores your business information. <strong>Your data stays on your device.</strong></p>
+<hr>
+<h2>2. Information We Do Not Collect</h2>
+<p>We want to be explicit about what we do <strong>not</strong> do:</p>
+<ul>
+<li>We do <strong>not</strong> collect personal information, usage patterns, or behavioral data.</li>
+<li>We do <strong>not</strong> employ analytics, telemetry, or tracking SDKs of any kind.</li>
+<li>We do <strong>not</strong> integrate advertising SDKs or display advertisements.</li>
+<li>We do <strong>not</strong> use crash-reporting services that transmit data to external servers.</li>
+<li>We do <strong>not</strong> sell, rent, license, or share any user data with third parties.</li>
+<li>We do <strong>not</strong> process or access your data on any server operated by Pentapolis Team.</li>
+</ul>
+<hr>
+<h2>3. Data Stored Locally on Your Device</h2>
+<p>All data generated by your use of PPOS is stored exclusively on your device. We have no ability to access, read, or modify this data. The following categories of information are stored locally:</p>
+<h3>3.1 Business Data (Local Database)</h3>
+<table>
+<thead>
+<tr>
+<th>Data Category</th>
+<th>Examples</th>
+<th>Storage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Product information</td>
+<td>Name, barcode, purchase price, selling price, category, images</td>
+<td>Local SQLite database</td>
+</tr>
+<tr>
+<td>Sales records</td>
+<td>Invoice reference, total amount, cost, profit, date, customer name</td>
+<td>Local SQLite database</td>
+</tr>
+<tr>
+<td>Debt management</td>
+<td>Debtor name, phone number, debt amounts, payment records</td>
+<td>Local SQLite database</td>
+</tr>
+<tr>
+<td>Financial reports</td>
+<td>Aggregated from sales data at query time</td>
+<td>Computed locally</td>
+</tr>
+</tbody></table>
+<h3>3.2 Application Settings (Local Storage)</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Store name, address, contact information</td>
+<td>Displayed on invoices and receipts</td>
+</tr>
+<tr>
+<td>Currency and country selection</td>
+<td>Formatting and localization</td>
+</tr>
+<tr>
+<td>Language preference</td>
+<td>Application UI language</td>
+</tr>
+<tr>
+<td>Display preferences (colors, grid layout)</td>
+<td>Visual customization</td>
+</tr>
+<tr>
+<td>Tax rate and configuration</td>
+<td>Automatic tax calculation</td>
+</tr>
+<tr>
+<td>Printer settings (Bluetooth MAC address, paper size)</td>
+<td>Thermal receipt printing</td>
+</tr>
+</tbody></table>
+<h3>3.3 Cached Account Information</h3>
+<p>When you sign in with Google, the following information is cached locally on your device for display purposes:</p>
+<ul>
+<li>Google account email address</li>
+<li>Firebase user identifier (UID)</li>
+<li>Profile photo URL</li>
+</ul>
+<p>This information is obtained through Google&#39;s authentication flow and is stored only on your device. We do not transmit, process, or store this information on any Pentapolis Team server.</p>
+<h3>3.4 Local Files</h3>
+<ul>
+<li><strong>Product Images:</strong> Captured photos are stored locally in the app&#39;s private directory (<code>product_images/</code>).</li>
+<li><strong>Crash Diagnostic Log:</strong> If the app encounters an unexpected error, a technical crash log is saved locally (<code>last_crash.txt</code>). This log is displayed to you on the next app launch and is immediately deleted. It is <strong>never automatically transmitted</strong> to any server. You may voluntarily choose to copy and share it with us for troubleshooting purposes.</li>
+</ul>
+<hr>
+<h2>4. Google Sign-In and Firebase Authentication</h2>
+<p>PPOS requires a one-time Google Sign-In during the initial device setup. This authentication is used to:</p>
+<ol>
+<li>Verify your identity for device configuration.</li>
+<li>Authorize access to your personal Google Drive (if you choose to use the product image feature).</li>
+</ol>
+<p>The authentication process is handled entirely by Google&#39;s secure infrastructure (Firebase Authentication and Google Play Services). We receive and cache only your email address, Firebase UID, and profile photo URL. <strong>We do not receive, store, or have access to your Google account password or authentication tokens.</strong></p>
+<p>You may sign out of the Application at any time via the &quot;Logout&quot; option in the navigation menu, which revokes the app&#39;s access to your Google account.</p>
+<hr>
+<h2>5. Google Drive Integration (Optional)</h2>
+<p>PPOS offers an optional integration with Google Drive for storing product images. This feature enables product images to be synchronized between multiple devices.</p>
+<h3>5.1 How It Works</h3>
+<ul>
+<li>PPOS uses the restricted <code>DRIVE_FILE</code> scope, which limits the app&#39;s access to <strong>only files and folders created by PPOS itself</strong>. The app cannot access your other Google Drive files.</li>
+<li>Product images are uploaded to a dedicated folder structure in your personal Google Drive: <code>My Drive / PPOS / IMAGES /</code>.</li>
+<li>Upload occurs automatically in the background (via Android WorkManager) after a product image is captured or changed.</li>
+</ul>
+<h3>5.2 Image Permissions on Google Drive</h3>
+<p>To enable product image loading across multiple devices without requiring authentication on each device, uploaded images are assigned a <strong>public-read (&quot;anyone with the link can view&quot;)</strong> permission on Google Drive. This means:</p>
+<ul>
+<li>Anyone with the direct file link can view the uploaded product image.</li>
+<li>The images are <strong>not</strong> indexed by search engines (file discovery is disabled).</li>
+<li>No other data (sales, invoices, debts, settings) is uploaded to Google Drive — only product images.</li>
+</ul>
+<h3>5.3 Your Control</h3>
+<ul>
+<li>This feature is activated only when you sign in with Google and capture product images.</li>
+<li>You may revoke PPOS&#39;s access to your Google Drive at any time from your <a href="https://myaccount.google.com/permissions">Google Account permissions page</a>.</li>
+<li>Revoking access does not delete previously uploaded images. You may delete them manually from your Google Drive.</li>
+</ul>
+<hr>
+<h2>6. Permissions Explained</h2>
+<p>PPOS requests certain device permissions that are strictly necessary for its core functionality. No permission is used for tracking, profiling, or data collection:</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Why It Is Needed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Camera</strong></td>
+<td>Scanning product barcodes (via CameraX and ML Kit) and capturing product images.</td>
+</tr>
+<tr>
+<td><strong>Microphone (Record Audio)</strong></td>
+<td>Voice input for product search using the device&#39;s speech recognition.</td>
+</tr>
+<tr>
+<td><strong>Bluetooth (Connect &amp; Scan)</strong></td>
+<td>Discovering and connecting to Bluetooth thermal receipt printers.</td>
+</tr>
+<tr>
+<td><strong>Fine Location</strong></td>
+<td>Required by the Android operating system for Bluetooth device scanning. <strong>No location data is ever collected, stored, or transmitted.</strong></td>
+</tr>
+<tr>
+<td><strong>Internet</strong></td>
+<td>Connecting to Google Drive for product image upload/download, Firebase Authentication for sign-in, and opening external web links.</td>
+</tr>
+<tr>
+<td><strong>Network State</strong></td>
+<td>Checking internet availability before attempting network operations.</td>
+</tr>
+</tbody></table>
+<p>All hardware features (camera, Bluetooth) are declared as optional in our app manifest, meaning the app can still be installed and used on devices that lack these hardware capabilities.</p>
+<hr>
+<h2>7. Data Synchronization Between Devices</h2>
+<p>PPOS supports synchronization between two devices (Device A and Device B) to share sales data and product information. This synchronization works as follows:</p>
+<ul>
+<li>The database file (<code>.db</code>) is exported and shared <strong>directly between devices</strong> using any file-sharing method chosen by the user (e.g., WhatsApp, file manager, Bluetooth file transfer).</li>
+<li><strong>No data passes through any Pentapolis Team server.</strong> The transfer is peer-to-peer between your own devices.</li>
+<li>The receiving device imports the database file locally.</li>
+</ul>
+<hr>
+<h2>8. Third-Party Services</h2>
+<p>PPOS relies on the following third-party services for core functionality:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Provider</th>
+<th>Purpose</th>
+<th>Provider&#39;s Privacy Policy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Firebase Authentication</td>
+<td>Google LLC</td>
+<td>User sign-in</td>
+<td><a href="https://policies.google.com/privacy">Google Privacy Policy</a></td>
+</tr>
+<tr>
+<td>Google Play Services Auth</td>
+<td>Google LLC</td>
+<td>Google Sign-In</td>
+<td><a href="https://policies.google.com/privacy">Google Privacy Policy</a></td>
+</tr>
+<tr>
+<td>Google Drive API</td>
+<td>Google LLC</td>
+<td>Product image storage</td>
+<td><a href="https://policies.google.com/privacy">Google Privacy Policy</a></td>
+</tr>
+<tr>
+<td>ML Kit Barcode Scanning</td>
+<td>Google LLC</td>
+<td>On-device barcode detection</td>
+<td><a href="https://policies.google.com/privacy">Google Privacy Policy</a></td>
+</tr>
+</tbody></table>
+<p><strong>Important:</strong> ML Kit Barcode Scanning runs entirely on-device and does not transmit any data to external servers.</p>
+<p>No third-party advertising, analytics, tracking, or telemetry services are used in this Application.</p>
+<hr>
+<h2>9. WhatsApp Integration</h2>
+<p>PPOS includes a feature that allows you to send debt reminder messages to debtors via WhatsApp. When you use this feature:</p>
+<ul>
+<li>The app constructs a pre-formatted message containing the debtor&#39;s name, outstanding amount, and your store name.</li>
+<li>The app opens WhatsApp using a standard Android intent. <strong>The message is sent through WhatsApp&#39;s infrastructure, not through PPOS.</strong></li>
+<li>PPOS does not access your WhatsApp contacts, messages, or any other WhatsApp data.</li>
+<li>This feature is entirely optional and user-initiated.</li>
+</ul>
+<hr>
+<h2>10. External Links</h2>
+<p>PPOS contains links to external websites and services that open in your device&#39;s default web browser:</p>
+<ul>
+<li><strong>Privacy Policy:</strong> <a href="https://www.pt.com.ly/ppos/privacy_policies">https://www.pt.com.ly/ppos/privacy_policies</a></li>
+<li><strong>App Support:</strong> <a href="https://www.pt.com.ly/ppos/app_support">https://www.pt.com.ly/ppos/app_support</a></li>
+<li><strong>Tutorial Videos:</strong> YouTube</li>
+<li><strong>Rate App:</strong> Google Play Store</li>
+</ul>
+<p>These links are opened via standard Android intents. PPOS does not embed a WebView and does not track or monitor your browsing activity in any way.</p>
+<hr>
+<h2>11. Data Security</h2>
+<p>We implement the following security measures within the Application:</p>
+<ul>
+<li><strong>Biometric/PIN Lock:</strong> The app requires device authentication (fingerprint, face, or PIN) on launch and after 15 minutes of inactivity.</li>
+<li><strong>Encrypted Communication:</strong> All network communication with Google services uses HTTPS/TLS encryption.</li>
+<li><strong>Local Storage Isolation:</strong> The app&#39;s database and files are stored in Android&#39;s private app directory, inaccessible to other applications.</li>
+<li><strong>No Credential Storage:</strong> The app does not store passwords, authentication tokens, or sensitive credentials. All authentication is delegated to the Android system&#39;s secure APIs and Google&#39;s infrastructure.</li>
+<li><strong>Session Management:</strong> Authentication sessions expire after 15 minutes of inactivity, requiring re-authentication.</li>
+</ul>
+<hr>
+<h2>12. Data Retention and Deletion</h2>
+<h3>12.1 Local Data</h3>
+<p>All data is retained locally on your device until you choose to delete it. You have full control:</p>
+<ul>
+<li><strong>Delete individual records:</strong> Remove products, sales, debtors, or debt entries from within the app.</li>
+<li><strong>Reset the application:</strong> Use the reset function in Settings to clear all data.</li>
+<li><strong>Uninstall the application:</strong> Uninstalling PPOS removes all locally stored data, including the database, images, and preferences.</li>
+</ul>
+<h3>12.2 Google Drive Data</h3>
+<p>Product images uploaded to your Google Drive remain in your Drive until you manually delete them. Uninstalling PPOS or revoking its access does not automatically delete images already stored in your Google Drive. You can delete the <code>PPOS</code> folder from your Google Drive at any time.</p>
+<h3>12.3 Firebase Authentication Data</h3>
+<p>Your Firebase authentication record (email and UID) is retained by Google in accordance with their data retention policies. You may delete your Google account data through your <a href="https://myaccount.google.com/data-and-privacy">Google Account settings</a>.</p>
+<hr>
+<h2>13. Your Rights</h2>
+<p>Depending on your jurisdiction, you may have the following rights regarding your data:</p>
+<ul>
+<li><strong>Right to Access:</strong> All your data is stored locally on your device and is accessible to you at all times through the app&#39;s interface.</li>
+<li><strong>Right to Deletion:</strong> You may delete all data by resetting the app, clearing app data, or uninstalling the application.</li>
+<li><strong>Right to Data Portability:</strong> You may export your database file at any time via the app&#39;s backup function.</li>
+<li><strong>Right to Revoke Consent:</strong> You may revoke Google Drive access through your Google Account permissions. You may sign out of the app at any time.</li>
+<li><strong>Right to Object:</strong> Since we do not process your data on our servers, there is no server-side processing to object to.</li>
+</ul>
+<p>For residents of the European Economic Area (EEA), these rights are provided under the General Data Protection Regulation (GDPR). For residents of California, USA, these rights are provided under the California Consumer Privacy Act (CCPA).</p>
+<hr>
+<h2>14. Children&#39;s Privacy</h2>
+<p>PPOS is a business point-of-sale tool designed for use by business owners and operators. It is <strong>not directed at children under the age of 13</strong> (or the applicable age of digital consent in your jurisdiction). We do not knowingly collect information from children. If you believe a child has provided data through the app, please contact us and we will take steps to address the situation.</p>
+<hr>
+<h2>15. Voluntary Support &amp; Monetization</h2>
+<p>PPOS is <strong>100% free</strong> to use with no advertisements, in-app purchases, subscriptions, or hidden fees. The app&#39;s navigation menu contains an &quot;App Support&quot; link that opens our website (<a href="https://www.pt.com.ly/ppos/app_support">https://www.pt.com.ly/ppos/app_support</a>). This page provides information about voluntary contributions to support the continued development of PPOS. These contributions:</p>
+<ul>
+<li>Are entirely voluntary and carry no obligation.</li>
+<li>Do not involve any in-app payment processing or data handling.</li>
+<li>Do not collect any personal or financial information from within the PPOS application.</li>
+</ul>
+<hr>
+<h2>16. Changes to This Privacy Policy</h2>
+<p>We may update this Privacy Policy from time to time to reflect changes in the Application, legal requirements, or our practices. When we make changes:</p>
+<ul>
+<li>We will update the &quot;Last Updated&quot; date at the top of this document.</li>
+<li>We will publish the revised policy at the official URL: <a href="https://www.pt.com.ly/ppos/privacy_policies">https://www.pt.com.ly/ppos/privacy_policies</a>.</li>
+<li>For material changes, we will make reasonable efforts to notify users (e.g., through an in-app notice or on our website).</li>
+</ul>
+<p>We encourage you to review this Privacy Policy periodically.</p>
+<hr>
+<h2>17. Contact Us</h2>
+<p>If you have any questions, concerns, or requests regarding this Privacy Policy or the PPOS application, please contact us:</p>
+<p><strong>Pentapolis Team</strong>
+<strong>Website:</strong> <a href="https://www.pt.com.ly">https://www.pt.com.ly</a>
+<strong>Email:</strong> <a href="mailto:info@pt.com.ly">info@pt.com.ly</a></p>
+<hr>
+<p><em>© 2026 Pentapolis Team. All rights reserved. PPOS is a proprietary, closed-source product. This Privacy Policy applies exclusively to the Pentapolis POS mobile application.</em></p>
+
+        </div>
+    </div>
+</body>
+</html>
