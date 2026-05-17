@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PENTAPOLIS TEAM | Simple Apps That Make Life Easier</title>
-    <meta name="description" content="PENTAPOLIS TEAM develops practical, lightweight mobile applications for everyday use and small businesses. Based in Benghazi, Libya.">
-    
+    <meta name="description"
+        content="PENTAPOLIS TEAM develops practical, lightweight mobile applications for everyday use and small businesses. Based in Benghazi, Libya.">
+
     <!-- Google Fonts: Inter and Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
@@ -228,8 +231,11 @@
         .app-card::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
             pointer-events: none;
         }
 
@@ -237,7 +243,7 @@
             transform: translateY(-8px);
             background: var(--surface-hover);
             border-color: var(--border-hover);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .app-content h3 {
@@ -351,11 +357,21 @@
 
         /* --- Animations --- */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .hero, .apps, .about, .contact {
+        .hero,
+        .apps,
+        .about,
+        .contact {
             animation: fadeIn 1s ease-out forwards;
         }
 
@@ -398,10 +414,18 @@
         }
 
         @media (max-width: 850px) {
-            .hero h1 { font-size: 3.5rem; }
-            .header-content { justify-content: space-between; }
-            .menu-toggle { display: block; }
-            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .header-content {
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
             nav {
                 position: fixed;
                 top: 0;
@@ -414,7 +438,7 @@
                 padding: 100px 30px;
                 transition: var(--transition);
                 z-index: 999;
-                box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
                 overflow-y: auto;
             }
 
@@ -427,7 +451,7 @@
                 align-items: flex-start;
                 gap: 25px;
             }
-            
+
             nav a {
                 font-size: 1.1rem;
             }
@@ -443,21 +467,32 @@
             .menu-toggle.active span:nth-child(1) {
                 transform: rotate(45deg) translate(5.5px, 5.5px);
             }
+
             .menu-toggle.active span:nth-child(2) {
                 opacity: 0;
             }
+
             .menu-toggle.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(6px, -6px);
             }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.1rem; }
-            .app-card { padding: 32px; }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .app-card {
+                padding: 32px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header id="home">
@@ -466,7 +501,7 @@
                 <img src="logo.png" alt="PT Logo" onerror="this.src='https://placehold.co/128x128/111/D4AF37?text=PT'">
                 <span>Pentapolis Team</span>
             </a>
-            
+
             <button class="menu-toggle" aria-label="Toggle Navigation">
                 <span></span>
                 <span></span>
@@ -497,26 +532,32 @@
 
         <section class="apps" id="apps">
             <div class="container">
-                <h2 class="section-title">Pentapolis POS Android App</h2>
+                <h2 class="section-title">PENTAPOLIS POS ANDROID APP</h2>
                 <div class="apps-grid">
-                    <a href="ppos/app_tutorial.html" class="app-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+                    <a href="ppos/app_tutorial.html" class="app-card"
+                        style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
                         <div class="app-content">
                             <h3>Tutorials</h3>
-                            <p>Access user guides, step-by-step tutorials, and FAQs designed to help business owners master the POS system and manage inventory effortlessly.</p>
+                            <p>Access user guides, step-by-step tutorials, and FAQs designed to help business owners
+                                master the POS system and manage inventory effortlessly.</p>
                         </div>
                     </a>
 
-                    <a href="ppos/privacy_policies.html" class="app-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+                    <a href="ppos/privacy_policies.html" class="app-card"
+                        style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
                         <div class="app-content">
                             <h3>Privacy Policy</h3>
-                            <p>Learn how our application secures your business data, protects transaction records, and ensures complete privacy compliance for all users.</p>
+                            <p>Learn how our application secures your business data, protects transaction records, and
+                                ensures complete privacy compliance for all users.</p>
                         </div>
                     </a>
 
-                    <a href="ppos/app_support.html" class="app-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+                    <a href="ppos/app_support.html" class="app-card"
+                        style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
                         <div class="app-content">
                             <h3>Support us</h3>
-                            <p>Support our project with a financial contribution to help us keep the application alive, completely ad-free, and continuously updated with new features.</p>
+                            <p>Support our project with a financial contribution to help us keep the application alive,
+                                completely ad-free, and continuously updated with new features.</p>
                         </div>
                     </a>
                 </div>
@@ -527,7 +568,8 @@
             <div class="container">
                 <div class="about-inner">
                     <h2 class="section-title">Our Story</h2>
-                    <p>PENTAPOLIS TEAM is a software developer based in Benghazi, focused on building simple, efficient, and affordable applications for users and small businesses.</p>
+                    <p>PENTAPOLIS TEAM is a software developer based in Benghazi, focused on building simple, efficient,
+                        and affordable applications for users and small businesses.</p>
                 </div>
             </div>
         </section>
@@ -552,7 +594,10 @@
     <footer>
         <div class="container">
             <div style="margin-bottom: 30px;">
-                <a href="#" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: var(--transition);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--accent-gold)'">↑ Return to top</a>
+                <a href="#"
+                    style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: var(--transition);"
+                    onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--accent-gold)'">↑ Return to
+                    top</a>
             </div>
             <p>&copy; 2026 PENTAPOLIS TEAM. All rights reserved.</p>
         </div>
@@ -567,7 +612,7 @@
         function toggleMenu() {
             menuToggle.classList.toggle('active');
             nav.classList.toggle('active');
-            
+
             if (nav.classList.contains('active')) {
                 overlay.style.display = 'block';
                 // Small timeout to allow display:block to apply before opacity transition
@@ -578,7 +623,7 @@
             } else {
                 overlay.classList.remove('active');
                 setTimeout(() => {
-                    if(!nav.classList.contains('active')) {
+                    if (!nav.classList.contains('active')) {
                         overlay.style.display = 'none';
                     }
                 }, 300); // Wait for transition
@@ -598,4 +643,5 @@
         });
     </script>
 </body>
+
 </html>
