@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download & Rate | PPOS — Pentapolis Point of Sale</title>
+    <meta name="description"
+        content="Download PPOS from Google Play, Uptodown, or as a direct APK. Rate the app and help us improve the best free POS for small businesses.">
+
+    <!-- Google Fonts: Inter and Outfit (matching site-wide design system) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ===================================================================
+           CSS VARIABLES — Inherited from the site-wide design system
+           =================================================================== */
+        :root {
+            --bg-color: #050505;
+            --surface-color: #111111;
+            --surface-hover: #161616;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-gold: #D4AF37;
+            --accent-silver: #C0C0C0;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --container-width: 1400px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            flex: 1;
+        }
+
+        /* --- Back Navigation --- */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            color: #fff;
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            text-align: center;
+            margin-bottom: 64px;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+            transform: translateX(-50%);
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        .page-header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            color: #fff;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .page-header h1 .gold {
+            background: linear-gradient(135deg, var(--accent-gold), #f0d060);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: clamp(1.05rem, 3vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===================================================================
+           SECTION 1 — Download Options
+           =================================================================== */
+        .section-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+        }
+
+        .section-heading {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2rem);
+            color: #fff;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .download-section {
+            padding-bottom: 80px;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .store-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .store-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .store-card:hover {
+            transform: translateY(-6px);
+            background: var(--surface-hover);
+            border-color: var(--border-hover);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Store icon circles */
+        .store-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .store-icon.google-play {
+            background: linear-gradient(135deg, #00C853, #00BFA5, #2979FF, #FF3D00);
+        }
+
+        .store-icon.uptodown {
+            background: linear-gradient(135deg, #0DA65C, #0BBF6A);
+        }
+
+        .store-icon.apk {
+            background: linear-gradient(135deg, var(--accent-gold), #c49c2a);
+        }
+
+        .store-icon.amazon {
+            background: linear-gradient(135deg, #FF9900, #E88B00);
+        }
+
+        .store-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+
+        .store-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .store-info h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .store-info p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        .store-badge.primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .store-card:hover .store-badge.primary {
+            background: var(--accent-gold);
+        }
+
+        .store-badge.secondary {
+            background: rgba(255, 255, 255, 0.07);
+            color: #fff;
+            border: 1px solid var(--border-color);
+        }
+
+        .store-card:hover .store-badge.secondary {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--border-hover);
+        }
+
+        .store-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ===================================================================
+           SECTION 2 — Rate Section
+           =================================================================== */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 0 0 80px 0;
+        }
+
+        .rate-section {
+            padding-bottom: 100px;
+        }
+
+        .rate-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .rate-header .emoji {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .rate-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2rem);
+            color: #fff;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+        }
+
+        .rate-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .rate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .rate-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rate-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .rate-card:hover {
+            transform: translateY(-6px);
+            background: var(--surface-hover);
+            border-color: var(--border-hover);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .rate-stars {
+            display: flex;
+            gap: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rate-stars svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--accent-gold);
+            transition: var(--transition);
+        }
+
+        .rate-card:hover .rate-stars svg {
+            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+        }
+
+        .rate-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rate-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--accent-gold);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .rate-card:hover .rate-btn {
+            background: var(--accent-gold);
+            color: #000;
+            border-color: var(--accent-gold);
+        }
+
+        .rate-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* --- Footer area --- */
+        .page-footer {
+            text-align: center;
+            padding: 40px 0 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .page-footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .page-footer a:hover {
+            color: #fff;
+        }
+
+        /* ===================================================================
+           ANIMATIONS
+           =================================================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-header,
+        .download-section,
+        .rate-section {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .download-section { animation-delay: 0.1s; }
+        .rate-section { animation-delay: 0.15s; }
+
+        /* ===================================================================
+           RESPONSIVE
+           =================================================================== */
+        @media (max-width: 600px) {
+            .download-grid,
+            .rate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .store-card,
+            .rate-card {
+                padding: 28px 20px;
+            }
+
+            .page-header {
+                margin-bottom: 48px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Back Navigation -->
+        <a href="../index.html" class="back-btn" id="back-home-btn">← Back to Home</a>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Get <span class="gold">PPOS</span></h1>
+            <p>Download the free Pentapolis Point of Sale app and start managing your business like a pro — no ads, no
+                subscriptions.</p>
+        </div>
+
+        <!-- ===============================================================
+             SECTION 1: Download Options
+             =============================================================== -->
+        <section class="download-section" id="download-section">
+            <p class="section-label">Download</p>
+            <h2 class="section-heading">Choose Your Platform</h2>
+
+            <div class="download-grid">
+
+                <!-- Google Play Store -->
+                <a href="#" class="store-card" id="download-google-play" target="_blank" rel="noopener noreferrer">
+                    <div class="store-icon google-play">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.6l2.312 1.34a1 1 0 0 1 0 1.734l-2.312 1.34-2.57-2.57 2.57-2.57zM5.864 3.458L16.8 9.79l-2.301 2.302-8.635-8.635z"/>
+                        </svg>
+                    </div>
+                    <div class="store-info">
+                        <h3>Google Play</h3>
+                        <p>The official Android app store — auto-updates included.</p>
+                    </div>
+                    <span class="store-badge primary">
+                        Get it on Play Store
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </a>
+
+                <!-- Uptodown -->
+                <a href="#" class="store-card" id="download-uptodown" target="_blank" rel="noopener noreferrer">
+                    <div class="store-icon uptodown">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="store-info">
+                        <h3>Uptodown</h3>
+                        <p>A trusted alternative store — no Google account needed.</p>
+                    </div>
+                    <span class="store-badge primary">
+                        Get it on Uptodown
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </a>
+
+                <!-- Amazon Appstore -->
+                <a href="#" class="store-card" id="download-amazon" target="_blank" rel="noopener noreferrer">
+                    <div class="store-icon amazon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.659.659 0 0 1-.753.075c-1.057-.878-1.247-1.286-1.826-2.122-1.748 1.782-2.986 2.315-5.249 2.315C6.576 18.063 4.5 16.425 4.5 13.41c0-2.353 1.275-3.955 3.091-4.739 1.571-.685 3.766-.808 5.441-997v-.375c0-.689.053-1.504-.352-2.098-.354-.531-1.034-.75-1.634-.75-1.11 0-2.099.569-2.341 1.749-.05.263-.241.521-.505.534l-2.834-.305c-.238-.053-.501-.244-.434-.606C5.576 2.455 8.292 1.5 10.721 1.5c1.243 0 2.868.331 3.848 1.273 1.243 1.158 1.124 2.703 1.124 4.386v3.974c0 1.195.496 1.719.962 2.365.164.232.2.509-.01.681-.524.437-1.457 1.25-1.969 1.705l-.032-.089z"/>
+                            <path d="M21.558 18.942c-1.994 1.473-4.891 2.258-7.384 2.258-3.497 0-6.645-1.293-9.024-3.445-.187-.169-.02-.399.205-.268 2.57 1.495 5.747 2.394 9.029 2.394 2.213 0 4.647-.459 6.888-1.409.338-.145.621.222.286.47z"/>
+                            <path d="M22.375 17.985c-.255-.326-1.687-.154-2.331-.078-.196.024-.226-.146-.05-.269 1.142-.802 3.013-.571 3.231-.302.219.272-.057 2.148-1.128 3.044-.165.138-.322.065-.249-.118.242-.6.782-1.95.527-2.277z"/>
+                        </svg>
+                    </div>
+                    <div class="store-info">
+                        <h3>Amazon Appstore</h3>
+                        <p>Available on Fire tablets and Amazon-enabled Android devices.</p>
+                    </div>
+                    <span class="store-badge primary">
+                        Get it on Amazon
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </a>
+
+                <!-- Direct APK Download -->
+                <a href="#" class="store-card" id="download-apk" rel="noopener noreferrer">
+                    <div class="store-icon apk">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16l-5-5h3V4h4v7h3l-5 5z"/>
+                            <path d="M20 18H4v2h16v-2z"/>
+                        </svg>
+                    </div>
+                    <div class="store-info">
+                        <h3>Direct APK</h3>
+                        <p>Download the APK file directly from our servers — sideload manually.</p>
+                    </div>
+                    <span class="store-badge secondary">
+                        Download APK
+                        <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5z" fill="currentColor"/></svg>
+                    </span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ===============================================================
+             SECTION 2: Rate Section
+             =============================================================== -->
+        <hr class="divider">
+
+        <section class="rate-section" id="rate-section">
+            <div class="rate-header">
+                <span class="emoji" aria-hidden="true">⭐</span>
+                <h2>Enjoying PPOS? Rate us on your preferred store!</h2>
+                <p>Your ratings help other business owners discover the app and motivate us to keep improving it.</p>
+            </div>
+
+            <div class="rate-grid">
+
+                <!-- Rate on Google Play -->
+                <a href="#" class="rate-card" id="rate-google-play" target="_blank" rel="noopener noreferrer">
+                    <div class="rate-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <h3>Rate on Google Play</h3>
+                    <p>Leave a review on the Play Store</p>
+                    <span class="rate-btn">
+                        Rate Now
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </a>
+
+                <!-- Rate on Uptodown -->
+                <a href="#" class="rate-card" id="rate-uptodown" target="_blank" rel="noopener noreferrer">
+                    <div class="rate-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <h3>Rate on Uptodown</h3>
+                    <p>Share your feedback on Uptodown</p>
+                    <span class="rate-btn">
+                        Rate Now
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </a>
+
+                <!-- Rate on Amazon Appstore -->
+                <a href="#" class="rate-card" id="rate-amazon" target="_blank" rel="noopener noreferrer">
+                    <div class="rate-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <h3>Rate on Amazon</h3>
+                    <p>Leave a review on the Amazon Appstore</p>
+                    <span class="rate-btn">
+                        Rate Now
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </a>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Return to top</a>
+    </div>
+
+    <!-- ===================================================================
+         JAVASCRIPT
+         All store/download URLs are centralized here.
+         ✏️  UPDATE THE URLS BELOW with your live production links.
+         =================================================================== -->
+    <script>
+        /**
+         * =====================================================================
+         * CENTRALIZED URL CONFIGURATION
+         * =====================================================================
+         * Update these placeholder URLs with your actual production links.
+         * Every download and rating link on this page reads from this object.
+         * =====================================================================
+         */
+        const PPOS_LINKS = {
+            // --- Download URLs ---
+            googlePlay:  "https://play.google.com/store/apps/details?id=com.pentapolis_team.ppos",
+            uptodown:    "https://ppos.en.uptodown.com/android/placeholder",
+            directApk:   "/downloads/ppos-latest-placeholder.apk",
+            amazon:      "https://www.amazon.com/gp/product/placeholder",
+
+            // --- Rating / Review URLs ---
+            rateGooglePlay: "https://play.google.com/store/apps/details?id=com.pentapolis_team.ppos",
+            rateUptodown:   "https://ppos.en.uptodown.com/android/placeholder",
+            rateAmazon:     "https://www.amazon.com/gp/product/placeholder"
+        };
+
+        /* Apply URLs from config to all link elements */
+        document.addEventListener('DOMContentLoaded', () => {
+            // Download links
+            document.getElementById('download-google-play').href = PPOS_LINKS.googlePlay;
+            document.getElementById('download-uptodown').href    = PPOS_LINKS.uptodown;
+            document.getElementById('download-apk').href         = PPOS_LINKS.directApk;
+            document.getElementById('download-amazon').href      = PPOS_LINKS.amazon;
+
+            // Rating links
+            document.getElementById('rate-google-play').href     = PPOS_LINKS.rateGooglePlay;
+            document.getElementById('rate-uptodown').href        = PPOS_LINKS.rateUptodown;
+            document.getElementById('rate-amazon').href          = PPOS_LINKS.rateAmazon;
+        });
+    </script>
+
+</body>
+
+</html>
